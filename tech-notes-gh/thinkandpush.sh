@@ -12,6 +12,8 @@
 
 set -euo pipefail
 
+cd /Users/anandkumar/Documents/Technical\ Notes || exit 1
+
 # Save all arguments as commit_note if provided, else default to "WIP"
 if (( $# > 0 )); then
   commit_note="$*"
