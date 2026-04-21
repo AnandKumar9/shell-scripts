@@ -11,7 +11,8 @@
 
 set -euo pipefail
 
-cd /Users/anandkumar/Documents/Technical\ Notes || exit 1
+cd /Users/anandkumar/Desktop/Technical\ Notes || exit 1
+# cd /Users/anandkumar/Documents/Technical\ Notes || exit 1
 
 # Determine the GitHub view type (blob or blame)
 view_type="blob"
