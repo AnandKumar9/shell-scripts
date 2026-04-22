@@ -10,7 +10,7 @@
 #     Opens the matching folder in Finder when there is exactly one match.
 #     If there are zero or multiple matches, opens MAIN_NOTES_DIR in Finder.
 #   opentechnotes <search-term> -png
-#     Searches for exactly one matching folder under MAIN_NOTES_DIR.
+#     Searches for exactly one matching folder under MAIN_NOTES_DIR.git
 #     Counts PNG files recursively under that folder, excluding image-*.png files.
 #     If fewer than 5 files are found, opens them one by one in Preview.app.
 # The script always prints the path it is about to open.
@@ -79,11 +79,11 @@ else
         fi
     }
 
-    # Search for folders with the given name
+    # Search for folders containing the given name, ignoring case
     matches=()
     while IFS= read -r folder; do
         matches+=("$folder")
-    done < <(find "$MAIN_NOTES_DIR" -type d -name "*$search_term*" 2>/dev/null)
+    done < <(find "$MAIN_NOTES_DIR" -type d -iname "*$search_term*" 2>/dev/null)
 
     if [[ ${#matches[@]} -eq 1 ]]; then
         if [[ "$use_png" == true ]]; then
@@ -97,6 +97,10 @@ else
         if [[ "$use_png" == true ]]; then
             printf 'Expected exactly one matching folder for "%s"; found %d. Skipping PNG search.\n' "$search_term" "${#matches[@]}"
         else
+            if [[ ${#matches[@]} -gt 1 ]]; then
+                printf 'Multiple matching folders for "%s":\n' "$search_term"
+                printf '%s\n' "${matches[@]}"
+            fi
             # Zero or more than one match: open main folder
             open_target "$MAIN_NOTES_DIR"
         fi
