@@ -1,0 +1,23 @@
+du -h -d 2 ~/Library 2>/dev/null | sort -hr | head -20
+
+du -h -d 2 ~/Library/Application\ Support/Claude 2>/dev/null | sort -hr | head -20
+
+rm -rf ~/Library/Application\ Support/Claude/vm_bundles. ----- BIG ONE
+rm -rf ~/Library/Application\ Support/Claude/Cache
+rm -rf ~/Library/Application\ Support/Claude/GPUCache
+rm -rf ~/Library/Application\ Support/Claude/Code\ Cache
+
+du -sh ~/.npm 
+npm cache clean --force
+
+du -h -d 2 ~/Library/Caches ~/Library/Logs 2>/dev/null \                          
+| egrep -i 'claude|anthropic|codex|openai' \
+| sort -hr
+
+rm -rf ~/Library/Caches/CocoaPods
+rm -rf ~/Library/Caches/Google
+
+rm -rf ~/Library/Caches/com.anthropic.*
+
+rm -rf ~/Library/Caches/com.apple.dt.Xcode ----- BIG ONE
+

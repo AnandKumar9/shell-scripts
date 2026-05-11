@@ -99,10 +99,20 @@ else
         else
             if [[ ${#matches[@]} -gt 1 ]]; then
                 printf 'Multiple matching folders for "%s":\n' "$search_term"
-                printf '%s\n' "${matches[@]}"
+                local i=1
+                for match in "${matches[@]}"; do
+                    printf '%d: %s\n' "$i" "${match#$MAIN_NOTES_DIR/}"
+                    ((i++))
+                done
+                printf '? '
+                read -r selection
+                if [[ "$selection" =~ ^[0-9]+$ ]] && (( selection >= 1 && selection <= ${#matches[@]} )); then
+                    open_target "${matches[$selection]}"
+                fi
+            else
+                # Zero matches: open main folder
+                open_target "$MAIN_NOTES_DIR"
             fi
-            # Zero or more than one match: open main folder
-            open_target "$MAIN_NOTES_DIR"
         fi
     fi
 fi
