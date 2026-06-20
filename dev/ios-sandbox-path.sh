@@ -1,6 +1,6 @@
 #!/bin/zsh
 #
-# iOS Simulator Sandbox Path Inspector
+# Prints an app's sandbox path
 #
 # Usage:
 #   ./ios-sandbox-path.sh          # Browse installed third-party apps

@@ -1,4 +1,27 @@
 #!/bin/zsh
+#
+# file-print-image-dimensions.sh
+#
+# Organizes images in a folder by their pixel dimensions. Scans for image files
+# (HEIC, PNG, JPEG, JPG) and creates subfolders named after their dimensions
+# (e.g., "1920x1080"), then moves the images into the appropriate folders.
+#
+# Supports both mdls and sips for reading image metadata, with automatic fallback
+# if the primary method fails.
+#
+# Usage:
+#   ./file-print-image-dimensions.sh <folder-path>
+#
+# Examples:
+#   ./file-print-image-dimensions.sh ~/Pictures/MyPhotos
+#   ./file-print-image-dimensions.sh /Volumes/ExternalDrive/Images
+#
+# Output:
+#   photo1.jpg -> 3840x2160/
+#   photo2.png -> 1920x1080/
+#
+# Result: Subfolders created for each unique dimension, with images organized
+# inside them. Handles duplicate filenames by appending counters (e.g., photo-1.jpg).
 
 set -u
 
