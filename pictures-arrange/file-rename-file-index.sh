@@ -25,9 +25,14 @@ dir="$1"
 start="${2:-1}"   # if $2 not provided, default to 1
 i=$start
 
-for file in ${(on)$(ls -t "$dir")}; do
-  ext="${file:e}"
+setopt nullglob
+
+files=("$dir"/*.(mov|mp4|MOV)(.om))
+for ((idx=${#files[@]}; idx>=1; idx--)); do
+  file="${files[idx]}"
+  filename="${file:t}"
+  ext="${filename:e}"
   printf -v newname "%d.%s" $i "$ext"
-  mv "$dir/$file" "$dir/$newname"
+  mv "$file" "$dir/$newname"
   ((i++))
 done
