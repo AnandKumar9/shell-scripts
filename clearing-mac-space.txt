@@ -1,14 +1,9 @@
 du -h -d 2 ~/Library 2>/dev/null | sort -hr | head -20
 
-du -h -d 2 ~/Library/Application\ Support/Claude 2>/dev/null | sort -hr | head -20
-
-rm -rf ~/Library/Application\ Support/Claude/vm_bundles. ----- BIG ONE
-rm -rf ~/Library/Application\ Support/Claude/Cache
-rm -rf ~/Library/Application\ Support/Claude/GPUCache
-rm -rf ~/Library/Application\ Support/Claude/Code\ Cache
-
 du -sh ~/.npm 
 npm cache clean --force
+
+rm -rf ~/Library/Caches/com.apple.dt.Xcode ----- BIG ONE
 
 du -h -d 2 ~/Library/Caches ~/Library/Logs 2>/dev/null \                          
 | egrep -i 'claude|anthropic|codex|openai' \
@@ -19,5 +14,50 @@ rm -rf ~/Library/Caches/Google
 
 rm -rf ~/Library/Caches/com.anthropic.*
 
-rm -rf ~/Library/Caches/com.apple.dt.Xcode ----- BIG ONE
+----- 
+Claude
 
+du -h -d 2 ~/Library/Application\ Support/Claude 2>/dev/null | sort -hr | head -20
+
+rm -rf ~/Library/Application\ Support/Claude/vm_bundles ----- BIG ONE
+rm -rf ~/Library/Application\ Support/Claude/Cache
+rm -rf ~/Library/Application\ Support/Claude/GPUCache
+rm -rf ~/Library/Application\ Support/Claude/Code\ Cache
+
+-----
+
+~/Library
+ 67G	/Users/anandkumar/Library
+ 44G	/Users/anandkumar/Library/Developer
+ 28G	/Users/anandkumar/Library/Developer/Xcode
+ 15G	/Users/anandkumar/Library/Developer/CoreSimulator
+8.0G	/Users/anandkumar/Library/Caches
+6.9G	/Users/anandkumar/Library/Application Support
+4.6G	/Users/anandkumar/Library/CloudStorage/GoogleDrive-write2anand.kumar@gmail.com
+4.6G	/Users/anandkumar/Library/CloudStorage
+
+~/Library/Caches
+8.0G	/Users/anandkumar/Library/Caches
+1.2G	/Users/anandkumar/Library/Caches/Raspberry Pi/Raspberry Pi Imager
+1.2G	/Users/anandkumar/Library/Caches/Raspberry Pi
+1.0G	/Users/anandkumar/Library/Caches/com.spotify.client
+
+~/.codex
+662M	/Users/anandkumar/.codex
+174M	/Users/anandkumar/.codex/sessions/2026
+174M	/Users/anandkumar/.codex/sessions
+
+~/Library/Application\ Support/Claude
+1.1G	/Users/anandkumar/Library/Application Support/Claude
+448M	/Users/anandkumar/Library/Application Support/Claude/claude-code-vm
+327M	/Users/anandkumar/Library/Application Support/Claude/vm_bundles/claudevm.bundle
+327M	/Users/anandkumar/Library/Application Support/Claude/vm_bundles
+
+~Library
+
+ 67G	/Users/anandkumar/Library
+ 43G	/Users/anandkumar/Library/Developer
+ 28G	/Users/anandkumar/Library/Developer/Xcode
+ 15G	/Users/anandkumar/Library/Developer/CoreSimulator
+8.1G	/Users/anandkumar/Library/Caches
+6.9G	/Users/anandkumar/Library/Application Support

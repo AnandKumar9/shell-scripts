@@ -21,18 +21,20 @@
 # Result: Files renamed to sequential numbers with original extensions.
 # Example: photo.jpg -> 1.jpg, IMG_123.png -> 2.png, etc.
 
-dir="$1"
-start="${2:-1}"   # if $2 not provided, default to 1
-i=$start
+echo "Need to review it"
 
-setopt nullglob
+# dir="$1"
+# start="${2:-1}"   # if $2 not provided, default to 1
+# i=$start
 
-files=("$dir"/*.(mov|mp4|MOV)(.om))
-for ((idx=${#files[@]}; idx>=1; idx--)); do
-  file="${files[idx]}"
-  filename="${file:t}"
-  ext="${filename:e}"
-  printf -v newname "%d.%s" $i "$ext"
-  mv "$file" "$dir/$newname"
-  ((i++))
-done
+# setopt nullglob
+
+# files=("$dir"/*.(mov|mp4|MOV)(.om))
+# for ((idx=${#files[@]}; idx>=1; idx--)); do
+#   file="${files[idx]}"
+#   filename="${file:t}"
+#   ext="${filename:e}"
+#   printf -v newname "%d.%s" $i "$ext"
+#   mv "$file" "$dir/$newname"
+#   ((i++))
+# done
